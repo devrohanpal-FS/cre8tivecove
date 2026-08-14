@@ -116,7 +116,7 @@ async function main() {
       isVisible: true,
       content: {
         badge: "Selected Work",
-        title: "Projects that define categories.",
+        title: "Projects that define categoriessgfjsgdjfgsjgjfgsjfgdsj.",
         ctaText: "All Projects"
       }
     },
