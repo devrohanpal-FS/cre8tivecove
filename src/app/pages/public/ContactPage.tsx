@@ -73,7 +73,7 @@ export default function ContactPage() {
         <Reveal>
           <p className="text-[11px] font-bold uppercase tracking-[0.15em] mb-5" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#C8A96B" }}>Get In Touch</p>
           <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(3rem, 6vw, 5.5rem)", fontWeight: 900, color: "#111", lineHeight: 1.04, letterSpacing: "-0.025em" }} className="mb-20">
-            Start a<br /><em style={{ fontStyle: "italic" }}>conversatiosdfgsjhfgsjhgjhn sdgfjdgsjfgsjdgfjgdsjgfjsdg.</em>
+            Start a<br /><em style={{ fontStyle: "italic" }}>conversation.</em>
           </h1>
         </Reveal>
 

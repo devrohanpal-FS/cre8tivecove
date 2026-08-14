@@ -464,7 +464,7 @@ export default function HomePage() {
                     <TextReveal text={sections.selected_work.title} variant="words" />
                   ) : (
                     <>
-                      <TextReveal text="Projects that define datajshdgfjhsgjfgsjgfjgf jhgjhg" variant="words" />
+                      <TextReveal text="Projects that define" variant="words" />
                       <br />
                       <em style={{ fontStyle: "italic" }}>categories.</em>
                     </>
