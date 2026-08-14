@@ -45,13 +45,13 @@ export default function AdminDashboard() {
       navigate("/admin/login");
       return;
     }
-    
+
     async function initAdmin() {
       try {
         const data = await api.get("/auth/me");
         setAdminUser(data.user);
         setLoading(false);
-        
+
         // Pre-load dashboard data
         loadDashboardData();
       } catch (err) {
@@ -75,7 +75,7 @@ export default function AdminDashboard() {
         api.get("/media"),
         api.get("/content/settings")
       ]);
-      
+
       setInquiries(inqs);
       setApplications(apps);
       setServices(svcs);
@@ -196,7 +196,7 @@ export default function AdminDashboard() {
 function DashboardTab({ inquiries, applications, projects, services, refreshData }: any) {
   const newInqs = inquiries.filter((i: any) => i.status === "NEW").length;
   const newApps = applications.length; // applications list
-  
+
   return (
     <div>
       <div className="mb-8">
@@ -543,7 +543,7 @@ function HomeEditorTab({ refreshData }: any) {
 function AboutEditorTab({ refreshData }: any) {
   const [saving, setSaving] = useState(false);
   const [msg, setMsg] = useState("");
-  
+
   const [hero, setHero] = useState<any>({
     badge: "About Us",
     title: "Filmmakers, Designers & Digital Creators.",
@@ -563,7 +563,7 @@ function AboutEditorTab({ refreshData }: any) {
         const pageData = await api.get("/content/pages/about");
         const mappedHero = pageData.sections.find((s: any) => s.key === "hero");
         const mappedStory = pageData.sections.find((s: any) => s.key === "story");
-        
+
         if (mappedHero) setHero(mappedHero.content);
         if (mappedStory) {
           setStory({
@@ -1194,7 +1194,7 @@ function ProjectsTab({ projects, refreshData }: any) {
               <div>
                 <label className="text-[10px] font-bold uppercase tracking-wider block mb-2 text-white/50">Category</label>
                 <select value={category} onChange={(e) => setCategory(e.target.value)} className="w-full px-4 py-3 rounded-xl text-[13px] border border-white/10 bg-[#111] text-white outline-none focus:border-[#C8A96B]">
-                  {["TVC & Commercials", "Brand Campaigns", "CGI & AI Commercials", "Corporate AV & Testimonials", "Web Development", "App Development", "Branding"].map((cat) => (
+                  {["Photoshoot", "TVC & Commercials", "Brand Campaigns", "CGI & AI Commercials", "Corporate AV & Testimonials", "Web Development", "App Development", "Branding"].map((cat) => (
                     <option key={cat} value={cat}>{cat}</option>
                   ))}
                 </select>
@@ -2130,7 +2130,7 @@ function MediaTab({ media, refreshData }: any) {
         {media.map((item: any) => {
           const isVideo = item.type === "video";
           const fullAssetUrl = `http://localhost:5001${item.url}`;
-          
+
           return (
             <div key={item.id} className="bg-[#111] rounded-2xl border border-white/5 overflow-hidden relative group aspect-square flex flex-col justify-end">
               {isVideo ? (
