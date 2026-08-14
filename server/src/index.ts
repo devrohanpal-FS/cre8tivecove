@@ -45,6 +45,15 @@ for (const dir of uploadDirs) {
 // Serve uploaded files statically
 app.use("/uploads", express.static(path.resolve("public/uploads")));
 
+// Root route for status check
+app.get("/", (req, res) => {
+  res.send("<h1>Cre8tiveCove API Server is running</h1><p>Visit <code>/api/services</code> or other endpoints to check data.</p>");
+});
+
+app.get("/api", (req, res) => {
+  res.json({ status: "running", message: "Welcome to Cre8tiveCove API" });
+});
+
 // Register routers
 app.use("/api/auth", authRouter);
 app.use("/api/content", contentRouter);
