@@ -1,4 +1,4 @@
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5001/api";
+const API_BASE = import.meta.env.VITE_API_BASE || "https://api.cre8tivecove.com";
 
 let accessToken = localStorage.getItem("token") || "";
 
@@ -26,11 +26,11 @@ export const logout = async () => {
 // Internal fetch wrapper that handles token header and 401 refresh intercept
 async function fetchWithRetry(url: string, options: RequestInit = {}): Promise<Response> {
   const headers = new Headers(options.headers || {});
-  
+
   if (accessToken) {
     headers.set("Authorization", `Bearer ${accessToken}`);
   }
-  
+
   // Set JSON content-type if body is JSON
   if (options.body && !(options.body instanceof FormData) && !headers.has("Content-Type")) {
     headers.set("Content-Type", "application/json");
@@ -54,12 +54,12 @@ async function fetchWithRetry(url: string, options: RequestInit = {}): Promise<R
       if (refreshResponse.ok) {
         const data = await refreshResponse.json();
         setToken(data.accessToken);
-        
+
         // Retry the original request with new token
         const retryHeaders = new Headers(reqOptions.headers);
         retryHeaders.set("Authorization", `Bearer ${data.accessToken}`);
         reqOptions.headers = retryHeaders;
-        
+
         response = await fetch(url, reqOptions);
       } else {
         // Refresh token failed/expired
